@@ -1,16 +1,13 @@
 const container = document.querySelector('#container');
 
-let x;
-x = 256
+function createGrid(dim=16) {
+	const grid = document.querySelector('.container');
+	grid.style.cssText = `grid-template-columns: repeat(${dim}, auto);`
 
-function createGrid(x) {
-	for (let i = 0; i < x; i++) container.appendChild(document.createElement('div')).classList.add(`item${i+1}`,'grid-item')
+	for (let i = 0; i < (dim * dim); i++) container.appendChild(document.createElement('div')).classList.add(`item${i+1}`,'grid-item')
 }
  
-createGrid(x); 
-
-
-const cell = document.querySelectorAll('.grid-item'); 
+createGrid(); 
 
 container.addEventListener('mouseover', function(e) {
 	const item = container.querySelector(`.${e.srcElement.classList[0]}`);
@@ -23,8 +20,12 @@ button.addEventListener('click', function() {
 	items.forEach(function(item) {
 		item.removeAttribute('style'); 
 	})
-	//dimensions = prompt('Enter a number: ')
-	//createGrid(dimensions);
+	dim = prompt('Enter a number: ')
+	const divs = document.querySelectorAll('.grid-item');
+	divs.forEach((div) => {
+		container.removeChild(div)
+	})
+	createGrid(dim);
 })
 
 

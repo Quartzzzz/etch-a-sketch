@@ -59,15 +59,12 @@ h1 {
 .container {
 	width: 500px;
 	height: 500px;
-	margin: 0 auto;
+	display: grid;
+  grid-template-columns: repeat(18, auto);
+  grid-gap: 1px;
 }
 
+
 .grid-item {
-	display: inline-block;
 	background-color: black; 
-	width: 16px;
-	height: 16px;
-	border: solid white;
-	border-width: 0px 1px; 
-	box-sizing: border-box;
 }
